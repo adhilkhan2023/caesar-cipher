@@ -18,3 +18,5 @@ def store_case_of_letters_of_text(text, case_of_letters_of_text)
 end
 
 store_case_of_letters_of_text(text, case_of_letters_of_text)
+
+text.downcase!
