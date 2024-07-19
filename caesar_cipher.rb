@@ -32,3 +32,31 @@ def set_correct_case(ciphered_text, case_of_letters_of_text)
 	end
 	ciphered_text_letters_with_correct_case.join
 end
+
+def caesar_cipher(text, key, case_of_letters_of_text)
+  alphabets = ("a".."z").to_a
+  letters_of_text = text.split("")
+  ciphered_text = []
+
+  letters_of_text.each do |letter|
+    if alphabets.include?(letter)
+      index_of_letter = alphabets.index(letter)
+      count = 0
+      while count < key do
+        if index_of_letter == 25
+          index_of_letter = 0
+        else
+          index_of_letter += 1
+        end
+        count += 1
+      end
+      ciphered_text.push(alphabets[index_of_letter])
+    else
+      ciphered_text.push(letter)
+    end
+  end
+
+	set_correct_case(ciphered_text, case_of_letters_of_text)
+end
+
+puts caesar_cipher(text, key, case_of_letters_of_text)
